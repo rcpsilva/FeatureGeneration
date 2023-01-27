@@ -1,17 +1,17 @@
-from sklearn.model_selection import train_test_split,StratifiedShuffleSplit,cross_val_score
+from sklearn.model_selection import train_test_split,StratifiedShuffleSplit,cross_val_score,cross_val_predict
 from sklearn.base import clone
 import numpy as np
 import pygad
 from copy import copy
+from sklearn.metrics import f1_score
 
 def get_feature_values(feature,X):
     return feature.predict(X)
 
-
 def fitness(new_feature,X_temp,y_temp,model):
     X = np.hstack((X_temp,np.array([new_feature]).T))
     model.fit(X,y_temp)
-    scores = cross_val_score(model, X, y_temp, cv=4, scoring='f1')
+    scores = cross_val_score(model, X, y_temp, cv=5, scoring='f1')
     return np.mean(scores)
 
 def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
@@ -29,10 +29,10 @@ def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
         fitness_function = lambda x,sol_idx : fitness(x,X_temp,y_temp,model)
 
         # GA parameters
-        num_generations = 100
+        num_generations = 50
         num_parents_mating = 2
 
-        sol_per_pop = 20
+        sol_per_pop = 40
         num_genes = len(y_temp)
 
         init_range_low = 0
