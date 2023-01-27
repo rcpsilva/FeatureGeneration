@@ -29,14 +29,14 @@ def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
         fitness_function = lambda x,sol_idx : fitness(x,X_temp,y_temp,model)
 
         # GA parameters
-        num_generations = 50
+        num_generations = 80
         num_parents_mating = 2
 
-        sol_per_pop = 40
+        sol_per_pop = 20
         num_genes = len(y_temp)
 
         init_range_low = 0
-        init_range_high = 2
+        init_range_high = 1
 
         parent_selection_type = "tournament"
         keep_parents = 1
@@ -57,8 +57,7 @@ def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
                        keep_parents=keep_parents,
                        crossover_type=crossover_type,
                        mutation_type=mutation_type,
-                       mutation_percent_genes=mutation_percent_genes,
-                       gene_type=int)
+                       mutation_percent_genes=mutation_percent_genes)
 
         # Run GA
         ga_instance.run()
