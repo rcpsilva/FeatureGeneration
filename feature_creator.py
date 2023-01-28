@@ -29,7 +29,7 @@ def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
         fitness_function = lambda x,sol_idx : fitness(x,X_temp,y_temp,model)
 
         # GA parameters
-        num_generations = 80
+        num_generations = 200
         num_parents_mating = 2
 
         sol_per_pop = 20
