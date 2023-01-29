@@ -54,12 +54,12 @@ for i in tqdm(range(len(y_data))):
                                             n_features=n,
                                             batch_size=b)
 
-                new_X = copy(X)
+                new_X = copy(X_data[i])
                 for f in features:
-                    new_X = np.hstack((new_X,np.array([fc.get_feature_values(f,X)]).T))
+                    new_X = np.hstack((new_X,np.array([fc.get_feature_values(f,X_data[i])]).T))
 
-                base_scores = cross_val_score(model, X, y, cv=10, scoring='f1')
-                scores = cross_val_score(model, new_X, y, cv=10, scoring='f1')
+                base_scores = cross_val_score(model, X_data[i], y_data[i], cv=10, scoring='f1')
+                scores = cross_val_score(model, new_X, y_data[i], cv=10, scoring='f1')
 
                 row = [i,fm.__str__()[:15],n,b,np.mean(base_scores),np.std(base_scores),np.mean(scores),np.std(scores)]
                 results.append(row)
