@@ -1,7 +1,7 @@
 import feature_creator as fc
 import pandas as pd
 import xgboost as xgb
-from xgboost.sklearn import XGBClassifier
+from xgboost.sklearn import XGBClassifier, XGBRegressor
 from sklearn.model_selection import train_test_split,StratifiedShuffleSplit,cross_val_score
 from sklearn.base import clone
 import numpy as np
@@ -37,7 +37,7 @@ y_data.append(deepcopy(y))
 
 model = XGBClassifier()
 
-feature_models = [XGBClassifier(),DecisionTreeRegressor(max_depth=5),DecisionTreeRegressor(max_depth=3)]
+feature_models = [XGBRegressor(),DecisionTreeRegressor(max_depth=5),DecisionTreeRegressor(max_depth=3)]
 n_features = [1,2,3,4,5]
 batch_sizes = [0.1,0.2,0.3]
 
