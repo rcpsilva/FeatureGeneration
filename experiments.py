@@ -64,7 +64,7 @@ for i in tqdm(range(len(y_data))):
                 row = [i,fm.__str__()[:15],n,b,np.mean(base_scores),np.std(base_scores),np.mean(scores),np.std(scores)]
                 results.append(row)
 
-                with open('results_continuous_fetures_2023_01_29.pkl', 'wb') as f:
+                with open('results_continuous_fetures_2023_01_30.pkl', 'wb') as f:
                     pickle.dump(results, f)
 
 
