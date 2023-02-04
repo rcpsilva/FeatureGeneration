@@ -38,8 +38,8 @@ y_data.append(deepcopy(y))
 model = XGBClassifier()
 
 feature_models = [XGBRegressor(),DecisionTreeRegressor(max_depth=5),DecisionTreeRegressor(max_depth=3)]
-n_features = [1,2,3,4,5]
-batch_sizes = [0.1,0.2,0.3]
+n_features = [1,2,5]
+batch_sizes = [25,50,100]
 
 results = []
 
@@ -52,7 +52,7 @@ for i in tqdm(range(len(y_data))):
                                             X_data[i],
                                             y_data[i],
                                             n_features=n,
-                                            batch_size=b)
+                                            batch_size=(b/y_data))
 
                 new_X = copy(X_data[i])
                 for f in features:
@@ -64,9 +64,7 @@ for i in tqdm(range(len(y_data))):
                 row = [i,fm.__str__()[:15],n,b,np.mean(base_scores),np.std(base_scores),np.mean(scores),np.std(scores)]
                 results.append(row)
 
-                with open('results_continuous_fetures_2023_01_30.pkl', 'wb') as f:
+                with open('results_continuous_fetures_2023_02_01.pkl', 'wb') as f:
                     pickle.dump(results, f)
-
-
 
 print(results)

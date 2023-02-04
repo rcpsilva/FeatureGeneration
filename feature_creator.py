@@ -1,9 +1,9 @@
 from sklearn.model_selection import train_test_split,StratifiedShuffleSplit,cross_val_score,cross_val_predict
 from sklearn.base import clone
 import numpy as np
-import pygad
 from copy import copy
 from sklearn.metrics import f1_score
+from scipy.optimize import minimize
 
 def get_feature_values(feature,X):
     return feature.predict(X)
@@ -26,50 +26,17 @@ def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
         X_temp = X[batch,:]
         y_temp = y[batch]
 
-        fitness_function = lambda x,sol_idx : fitness(x,X_temp,y_temp,model)
+        fitness_function = lambda x: -fitness(x,X_temp,y_temp,model)
 
-        # GA parameters
-        num_generations = 200
-        num_parents_mating = 2
+        x0 = np.random.rand(len(y_temp)) # Initial guess for the optimization
+        options = {'maxiter': 1000, 'xatol': 1e-6, 'fatol': 1e-6}
+        res = minimize(fitness_function, x0, method='Nelder-Mead',options=options)
 
-        sol_per_pop = 20
-        num_genes = len(y_temp)
-
-        init_range_low = 0
-        init_range_high = 1
-
-        parent_selection_type = "tournament"
-        keep_parents = 1
-
-        crossover_type = "two_points"
-
-        mutation_type = "random"
-        mutation_percent_genes = 10
-
-        ga_instance = pygad.GA(num_generations=num_generations,
-                       num_parents_mating=num_parents_mating,
-                       fitness_func=fitness_function,
-                       sol_per_pop=sol_per_pop,
-                       num_genes=num_genes,
-                       init_range_low=init_range_low,
-                       init_range_high=init_range_high,
-                       parent_selection_type=parent_selection_type,
-                       keep_parents=keep_parents,
-                       crossover_type=crossover_type,
-                       mutation_type=mutation_type,
-                       mutation_percent_genes=mutation_percent_genes)
-
-        # Run GA
-        ga_instance.run()
-        solution, solution_fitness, solution_idx = ga_instance.best_solution()
-
-        # Persist fitness curves
-        ga_fitness.append(copy(ga_instance.best_solutions_fitness))
-
+        ga_fitness.append(res.fun)
         # fit model feature model
 
         feature_models[feature_model_idx] = clone(feature_model)
-        feature_models[feature_model_idx].fit(X_temp,solution)
+        feature_models[feature_model_idx].fit(X_temp,res.x)
 
         feature_model_idx+=1
 
