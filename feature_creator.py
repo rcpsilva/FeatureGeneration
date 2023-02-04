@@ -3,7 +3,7 @@ from sklearn.base import clone
 import numpy as np
 from copy import copy
 from sklearn.metrics import f1_score
-from scipy.optimize import minimize
+from scipy.optimize import minimize, direct, Bounds
 
 def get_feature_values(feature,X):
     return feature.predict(X)
@@ -28,11 +28,15 @@ def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
 
         fitness_function = lambda x: -fitness(x,X_temp,y_temp,model)
 
-        x0 = np.random.rand(len(y_temp)) # Initial guess for the optimization
-        options = {'maxiter': 1000, 'xatol': 1e-6, 'fatol': 1e-6}
-        res = minimize(fitness_function, x0, method='Nelder-Mead',options=options)
+        # Nelder mead
+        # x0 = np.random.rand(len(y_temp)) # Initial guess for the optimization
+        # options = {'maxiter': 1000, 'xatol': 1e-6, 'fatol': 1e-6}
+        # res = minimize(fitness_function, x0, method='Nelder-Mead',options=options)
 
-        ga_fitness.append(res.fun)
+        bounds = Bounds(np.zeros(len(y_temp)), np.ones(len(y_temp)))
+        res = direct(fitness_function, bounds)
+
+        ga_fitness.append(res)
         # fit model feature model
 
         feature_models[feature_model_idx] = clone(feature_model)
