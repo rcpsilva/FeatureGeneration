@@ -3,7 +3,7 @@ from sklearn.base import clone
 import numpy as np
 from copy import copy
 from sklearn.metrics import f1_score
-from scipy.optimize import minimize, direct, Bounds
+from scipy.optimize import minimize, direct, Bounds, shgo
 
 def get_feature_values(feature,X):
     return feature.predict(X)
@@ -34,8 +34,8 @@ def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
         # res = minimize(fitness_function, x0, method='Nelder-Mead',options=options)
 
         bounds = Bounds(np.zeros(len(y_temp)), np.ones(len(y_temp)))
-        res = direct(fitness_function, bounds)
-
+        res = shgo(fitness_function, bounds)
+        
         ga_fitness.append(res)
         # fit model feature model
 
