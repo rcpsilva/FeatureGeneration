@@ -8,38 +8,40 @@ import numpy as np
 from copy import copy,deepcopy
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.linear_model import LogisticRegression, LinearRegression
 import pickle
 from tqdm import tqdm
+from sklearn import preprocessing
 
 X_data = []
 y_data = []
 
-df = pd.read_csv('spambase.csv')
-X = df.drop(columns=['spam']).to_numpy()
-y = df['spam'].to_numpy()
+#df = pd.read_csv('spambase.csv')
+#X = preprocessing.normalize(df.drop(columns=['spam']).to_numpy())
+#y = df['spam'].to_numpy()
 
-X_data.append(deepcopy(X))
-y_data.append(deepcopy(y))
+#X_data.append(deepcopy(X))
+#y_data.append(deepcopy(y))
 
 df = pd.read_csv('spect_train.csv')
-X = df.drop(columns=['OVERALL_DIAGNOSIS']).to_numpy()
+X = preprocessing.normalize(df.drop(columns=['OVERALL_DIAGNOSIS']).to_numpy())
 y = df['OVERALL_DIAGNOSIS'].to_numpy()
 
 X_data.append(deepcopy(X))
 y_data.append(deepcopy(y))
 
 df = pd.read_csv('ionosphere_data.csv')
-X = df.drop(columns=['column_ai']).to_numpy()
+X = preprocessing.normalize(df.drop(columns=['column_ai']).to_numpy())
 y = df['column_ai'].to_numpy()
 
 X_data.append(deepcopy(X))
 y_data.append(deepcopy(y))
 
-model = XGBClassifier()
+model = LogisticRegression()
 
-feature_models = [XGBRegressor(),DecisionTreeRegressor(max_depth=5),DecisionTreeRegressor(max_depth=3)]
+feature_models = [XGBRegressor(),DecisionTreeRegressor(max_depth=5),DecisionTreeRegressor(max_depth=3),LinearRegression()]
 n_features = [1,2,5]
-batch_sizes = [25,50,100]
+batch_sizes = [0.15,0.20,0.25]
 
 results = []
 
@@ -52,7 +54,7 @@ for i in tqdm(range(len(y_data))):
                                             X_data[i],
                                             y_data[i],
                                             n_features=n,
-                                            batch_size=(b/y_data))
+                                            batch_size=b)
 
                 new_X = copy(X_data[i])
                 for f in features:
@@ -64,7 +66,7 @@ for i in tqdm(range(len(y_data))):
                 row = [i,fm.__str__()[:15],n,b,np.mean(base_scores),np.std(base_scores),np.mean(scores),np.std(scores)]
                 results.append(row)
 
-                with open('results_continuous_fetures_2023_02_01.pkl', 'wb') as f:
+                with open('results_continuous_fetures_2023_02_07.pkl', 'wb') as f:
                     pickle.dump(results, f)
 
 print(results)

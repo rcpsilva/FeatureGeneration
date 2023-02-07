@@ -31,9 +31,10 @@ def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
         # Nelder mead
         bounds = Bounds(np.zeros(len(y_temp)), np.ones(len(y_temp)))
         x0 = np.random.rand(len(y_temp)) # Initial guess for the optimization
-        options = {'maxiter': 1000, 'xatol': 1e-2, 'fatol': 1e-2}
+        #options = {'maxiter': 1000, 'xatol': 1e-2, 'fatol': 1e-2}
         #res = minimize(fitness_function, x0, method='Nelder-Mead',options=options)
 
+        options = {'maxiter': 1000, 'xtol':1e-2, 'ftol':1e-2, 'disp':True}
         res = minimize(fitness_function, x0, method='Powell',options=options,bounds=bounds)
 
         #bounds = Bounds(np.zeros(len(y_temp)), np.ones(len(y_temp)))
