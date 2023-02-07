@@ -19,7 +19,7 @@ def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
 
     idxs = get_subsample_idxs(X,y,n_features,batch_size)
 
-    ga_fitness = []
+    results = []
 
     feature_model_idx = 0
     for batch in idxs:
@@ -29,14 +29,17 @@ def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
         fitness_function = lambda x: -fitness(x,X_temp,y_temp,model)
 
         # Nelder mead
-        # x0 = np.random.rand(len(y_temp)) # Initial guess for the optimization
-        # options = {'maxiter': 1000, 'xatol': 1e-6, 'fatol': 1e-6}
-        # res = minimize(fitness_function, x0, method='Nelder-Mead',options=options)
+        #bounds = Bounds(np.zeros(len(y_temp)), np.ones(len(y_temp)))
+        x0 = np.random.rand(len(y_temp)) # Initial guess for the optimization
+        options = {'maxiter': 1000, 'xatol': 1e-2, 'fatol': 1e-2}
+        res = minimize(fitness_function, x0, method='Nelder-Mead',options=options)
 
-        bounds = Bounds(np.zeros(len(y_temp)), np.ones(len(y_temp)))
-        res = shgo(fitness_function, bounds)
+        #res = minimize(fitness_function, x0, method='Powell',options=options,bounds=bounds)
+
+        #bounds = Bounds(np.zeros(len(y_temp)), np.ones(len(y_temp)))
+        #res = shgo(fitness_function, bounds)
         
-        ga_fitness.append(res)
+        results.append(res)
         # fit model feature model
 
         feature_models[feature_model_idx] = clone(feature_model)
@@ -44,7 +47,7 @@ def feature_creator(model,feature_model,X,y,n_features=5,batch_size=0.05):
 
         feature_model_idx+=1
 
-    return feature_models, ga_fitness
+    return feature_models, results
 
 
 def get_subsample_idxs(X,y,n_features,batch_size):
