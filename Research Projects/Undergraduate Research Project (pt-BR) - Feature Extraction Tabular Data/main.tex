@@ -17,10 +17,10 @@
 %--------------------------------------
 
 
-\title{Avaliação da Qualidade de Serviços de Geocodificação Online em Cidades Brasileiras}
+\title{Extração de Características em Dados Tabulares}
 
 \author{Orientador: Prof. Rodrigo Cesar Pedrosa Silva \\
-Bolsista: Ana Luiza Almeida Soares}
+Bolsista: Alecia}
 
 \date{\today}
 
@@ -31,67 +31,57 @@ Bolsista: Ana Luiza Almeida Soares}
 
 \maketitle
 
-\section{Resumo}
-Este projeto de pesquisa concentra-se em estimar a qualidade dos serviços de geocodificação online adaptados para cidades brasileiras. A geocodificação, o processo de transformar endereços em coordenadas geográficas, é crucial para uma ampla gama de aplicações em transporte, planejamento urbano, serviços de emergência e operações comerciais. No entanto, a qualidade dos resultados de geocodificação varia entre diferentes provedores de serviço e regiões, tornando necessário avaliar e comparar esses serviços.
-
-O projeto tem como objetivo avaliar a precisão, de diferentes serviços de geocodificação online na correta geocodificação de endereços em cidades brasileiras. Será coletado um conjunto diversificado de dados que incluirá endereços urbanos e rurais com diferentes complexidades. Coordenadas de referência obtidas de fontes confiáveis serão usadas para validar a precisão dos serviços de geocodificação. A pesquisa estabelecerá métricas quantitativas para avaliar e comparar o desempenho dos serviços de geocodificação.
-
-Os resultados deste projeto de pesquisa terão implicações significativas para análise espacial, processos de tomada de decisão, serviços baseados em localização, desenvolvimento de infraestrutura e operações comerciais em cidades brasileiras. Os resultados permitirão que pesquisadores, formuladores de políticas e profissionais tomem decisões informadas sobre a seleção e utilização dos serviços de geocodificação. Além disso, o projeto preenche a lacuna de pesquisa específica para o contexto brasileiro e contribui para o conhecimento existente em pesquisa de geocodificação. Em última análise, este projeto de pesquisa visa aprimorar a precisão, eficiência e confiabilidade dos serviços de geocodificação para cidades brasileiras, beneficiando diversos setores e partes interessadas envolvidas em aplicações de geocodificação.
+\section*{Resumo}
+Este projeto de pesquisa concentra-se no desenvolvimento de técnicas avançadas de extração de atributos adaptadas para dados tabulares. O objetivo é superar os desafios únicos apresentados por conjuntos de dados tabulares com alta dimensionalidade, atributos categóricos e valores ausentes. Ao utilizar conhecimento específico do domínio e incorporar métodos inovadores, como redução de dimensionalidade, codificação de atributos categóricos e imputação de valores ausentes, o projeto tem como objetivo aprimorar a interpretabilidade, robustez e desempenho preditivo de modelos de aprendizado de máquina aplicados a dados tabulares. Serão realizados experimentos extensivos em conjuntos de dados do mundo real para avaliar os métodos propostos e compará-los com técnicas existentes. Os resultados deste projeto têm o potencial de melhorar o desempenho dos modelos e fornecer insights sobre os padrões subjacentes presentes em dados tabulares, contribuindo assim para o campo da ciência de dados e aprendizado de máquina.
    
-\section{Palavras-chave}
-Geocodificação, Análise espacial, Serviços de geocodificação online
+\section*{Palavras-chave}
+    sdjkfls
    
 \section{Introdução}
 	
-Geocodificação, o processo de transformar endereços em coordenadas geográficas, é um componente fundamental dos serviços de localização e da análise espacial moderna. Com a crescente demanda por informações de geolocalização precisas e eficientes, os serviços de geocodificação online se tornaram ferramentas cruciais para uma ampla variedade de aplicações, incluindo sistemas de navegação, plataformas de mídia social, gestão logística, planejamento urbano e muitas outras. No entanto, a qualidade e confiabilidade dos resultados de geocodificação dos diferentes provedores de serviço pode variar devido a diferenças nos algoritmos subjacentes, fontes de dados e técnicas de processamento, tornando essencial avaliar e comparar o desempenho desses serviços.
+Nos últimos anos, o crescimento exponencial na coleta de dados tem levado ao surgimento de conjuntos de dados tabulares em larga escala em diversos domínios, como finanças, saúde e comércio eletrônico. Dados tabulares geralmente consistem em informações estruturadas organizadas em linhas e colunas, sendo que cada coluna representa um atributo específico. Técnicas eficazes de extração de atributos são cruciais para extrair informações significativas desses conjuntos de dados e melhorar o desempenho de algoritmos de aprendizado de máquina.
 
-Este projeto de pesquisa tem como objetivo estimar a qualidade de diferentes serviços de geocodificação online para cidades brasileiras. O Brasil, sendo um país vasto e diverso com um sistema de endereçamento complexo, apresenta desafios únicos para as aplicações de geocodificação. A precisão e a exatidão dos serviços de geocodificação nesse contexto têm implicações significativas para vários setores, como transporte, serviços de emergência e operações comerciais. Portanto, compreender os pontos fortes e limitações dos serviços de geocodificação disponíveis é de extrema importância tanto para a pesquisa acadêmica quanto para as aplicações práticas.	
+A extração de atributos tem como objetivo transformar dados tabulares brutos em um conjunto reduzido e representativo de atributos que capturam as características essenciais dos dados. Métodos tradicionais de extração de atributos, como Análise de Componentes Principais (PCA) e Análise de Componentes Independentes (ICA), têm sido amplamente aplicados em domínios de processamento de imagem e sinal. No entanto, os desafios únicos apresentados por dados tabulares, como alta dimensionalidade, atributos categóricos e valores ausentes, requerem técnicas de extração de atributos adaptadas.
+
+Este projeto de pesquisa tem como foco explorar e desenvolver métodos avançados de extração de atributos especificamente projetados para dados tabulares. Ao abordar as limitações das técnicas existentes e incorporar conhecimento específico do domínio, visamos melhorar a interpretabilidade, robustez e desempenho preditivo de modelos de aprendizado de máquina aplicados a conjuntos de dados tabulares.
    
 \section{Objetivos}
 
-O objetivo principal deste projeto de pesquisa é desenvolver uma metodologia abrangente para estimar a qualidade de diferentes serviços de geocodificação online para cidades brasileiras. Ao avaliar e comparar rigorosamente seu desempenho, pretendemos fornecer insights valiosos sobre os pontos fortes e limitações de cada serviço, permitindo que os usuários façam escolhas informadas com base em seus requisitos específicos. O projeto abrangerá uma variedade de dimensões, incluindo precisão, completude, velocidade, confiabilidade e facilidade de integração, para fornecer uma avaliação holística da qualidade dos serviços de geocodificação.
+Os principais objetivos deste projeto de pesquisa são os seguintes:
+
+a) Investigar e avaliar as técnicas existentes de extração de atributos para dados tabulares: Este objetivo envolve uma revisão abrangente dos métodos de extração de atributos de última geração adaptados para conjuntos de dados tabulares. Analisaremos os pontos fortes, limitações e pressupostos subjacentes de cada técnica, considerando fatores como seleção de atributos, transformação de atributos e construção de atributos.
+
+b) Desenvolver novos métodos de extração de atributos para dados tabulares: Com base nos insights obtidos na revisão da literatura, proporemos algoritmos inovadores de extração de atributos que abordem os desafios únicos dos dados tabulares. Esses métodos podem incluir técnicas de redução de dimensionalidade, codificação de atributos categóricos, tratamento de valores ausentes e incorporação de conhecimento específico do domínio.
+
+c) Avaliar o desempenho e a interpretabilidade dos métodos propostos: Para avaliar a eficácia das técnicas desenvolvidas de extração de atributos, realizaremos experimentos extensivos em diversos conjuntos de dados tabulares do mundo real. Métricas de desempenho, como acurácia de classificação, erro de regressão e tempo de treinamento do modelo, serão usadas para comparar os métodos propostos com as técnicas existentes. Além disso, analisaremos a interpretabilidade dos atributos extraídos para obter insights sobre os padrões e relacionamentos subjacentes presentes nos dados.
    
 \section{Justificativa/Relevância}
 
-As justificativas para este projeto podem ser colocadas nos seguintes termos:
+Este projeto de pesquisa possui uma relevância significativa no campo da ciência de dados e aprendizado de máquina. A extração de atributos informativos de dados tabulares é crucial para obter previsões ou insights precisos e confiáveis. Os resultados deste projeto terão as seguintes implicações:
 
-1. Atendendo a uma Necessidade Crítica:
+a) Melhoria no desempenho do modelo: Ao utilizar técnicas avançadas de extração de atributos, temos como objetivo aprimorar o desempenho preditivo de modelos de aprendizado de máquina aplicados a dados tabulares. Isso permitirá previsões mais precisas, tarefas de classificação e regressão em diversos domínios.
 
-Serviços de geocodificação precisos e confiáveis são essenciais para uma ampla gama de aplicações em diversos setores, incluindo transporte, planejamento urbano, serviços de emergência e operações comerciais. No contexto das cidades brasileiras, que possuem um sistema de endereçamento complexo e características geográficas diversas, a necessidade de soluções robustas de geocodificação torna-se ainda mais crítica. Este projeto de pesquisa aborda essa necessidade avaliando e comparando a qualidade de diferentes serviços de geocodificação aplicados à cidades brasileiras.
+b) Aumento da interpretabilidade: A interpretabilidade dos atributos desempenha um papel vital na compreensão das relações entre as variáveis de entrada e as previsões do modelo. Ao desenvolver métodos que extraem atributos interpretáveis de dados tabulares, este projeto de pesquisa contribuirá para a transparência e confiabilidade dos modelos de aprendizado de máquina.
 
-2. Aprimorando a Análise Espacial e a Tomada de Decisão:
-
-Erros de geocodificação podem ter consequências significativas nos processos de análise espacial e tomada de decisão. Resultados de geocodificação imprecisos ou inexatos podem levar a análises falhas, decisões equivocadas e alocação ineficiente de recursos. Ao estimar a qualidade dos serviços de geocodificação online, este projeto de pesquisa fornece insights valiosos a pesquisadores, formuladores de políticas e profissionais, permitindo que tomem escolhas mais informadas ao utilizar serviços de geocodificação para análises espaciais, planejamento urbano e processos de tomada de decisão.
-
-3. Apoio ao Desenvolvimento de Infraestrutura:
-
-A geocodificação precisa é crucial para iniciativas de desenvolvimento de infraestrutura, incluindo redes de transporte, serviços de utilidade pública e sistemas de resposta a emergências. Ao avaliar a precisão dos serviços de geocodificação, este projeto de pesquisa fornece insights valiosos para planejadores e formuladores de políticas de infraestrutura. Os resultados podem contribuir para o desenvolvimento de sistemas de endereçamento robustos, algoritmos de roteamento eficientes e aprimoramento das capacidades de resposta a emergências, aprimorando assim o desenvolvimento geral da infraestrutura nas cidades brasileiras.
-
-4. Preenchendo a Lacuna na Pesquisa:
-
-Embora a pesquisa em geocodificação tenha sido amplamente estudada em vários contextos, há uma falta de avaliações abrangentes específicas para as cidades brasileiras \cite{}. Este projeto de pesquisa preenche a lacuna na pesquisa ao se concentrar nos desafios únicos e nos requisitos da geocodificação no contexto brasileiro. Os resultados contribuirão para o conhecimento existente na pesquisa de geocodificação, enriquecendo a compreensão da qualidade e desempenho da geocodificação em sistemas geográficos e de endereçamento diversos.
-   
 \section{Atividades/Metodologias}
 
-Para alcançar nossos objetivos de pesquisa, seguiremos uma metodologia sistemática e abrangente. Os seguintes passos serão realizados:
+O projeto de pesquisa seguirá a seguinte metodologia:
 
-1. Coleta de Dados: Vamos reunir um conjunto de dados diversificado e representativo, consistindo em endereços de várias cidades brasileiras. Este conjunto de dados incluirá uma combinação de endereços urbanos e rurais, diferentes formatos de endereço e uma variedade de complexidade de endereços para garantir uma avaliação abrangente.
+a) Revisão da literatura: Realizar uma revisão abrangente de artigos e pesquisas relacionados à extração de atributos para dados tabulares. Analisar e resumir os pontos fortes, limitações e princípios subjacentes das técnicas existentes.
 
-2. Seleção dos Serviços de Geocodificação: Vamos identificar e selecionar um conjunto de serviços populares de geocodificação online disponíveis para cidades brasileiras. Esses serviços serão escolhidos com base em sua ampla utilização, disponibilidade de APIs documentadas e reputação na comunidade geoespacial.
+b) Identificação de desafios: Identificar os desafios únicos enfrentados ao aplicar técnicas de extração de atributos a dados tabulares. Esses desafios podem incluir alta dimensionalidade, atributos categóricos, valores ausentes e dados ruidosos.
 
-3. Experimentos de Geocodificação: Utilizando o conjunto de dados coletados, iremos realizar experimentos de geocodificação, enviando os endereços para cada serviço de geocodificação selecionado. Registraremos os resultados de geocodificação, incluindo as coordenadas de latitude e longitude, retornados por cada serviço para análises posteriores.
+c) Desenvolvimento de algoritmos: Com base nos desafios identificados e nos insights obtidos na revisão da literatura, desenvolver algoritmos inovadores de extração de atributos especificamente projetados para dados tabulares. Esses algoritmos podem envolver técnicas como redução de dimensionalidade, codificação de atributos, métodos de imputação para valores ausentes e incorporação de conhecimento específico do domínio.
 
-4. Dados de Referência: Para validar a precisão dos serviços de geocodificação, obteremos coordenadas de referência para um subconjunto de endereços a partir de fontes confiáveis, como bancos de dados governamentais, mapas oficiais ou conjuntos de dados geoespaciais autoritativos. Essas coordenadas de referência servirão como base para avaliar a precisão de cada serviço de geocodificação.
+d) Configuração experimental: Adquirir diversos conjuntos de dados tabulares do mundo real de diferentes domínios para avaliar o desempenho dos métodos propostos de extração de atributos. Pré-processar os conjuntos de dados, abordando questões como limpeza de dados, normalização e tratamento de variáveis categóricas.
 
-5. Análise e Comparação: Com base nos resultados de geocodificação coletados e nas métricas de avaliação, iremos analisar e comparar o desempenho de diferentes serviços de geocodificação. Essa análise envolverá a identificação de pontos fortes e fracos, determinação dos serviços mais precisos, e compreensão de quaisquer variações regionais no desempenho.
+e) Avaliação de desempenho: Aplicar os métodos desenvolvidos de extração de atributos aos conjuntos de dados pré-processados e comparar seu desempenho com as técnicas existentes. Avaliar o desempenho usando métricas apropriadas, como acurácia de classificação, erro médio quadrático e eficiência computacional. Realizar testes de significância estatística para validar as melhorias alcançadas pelos métodos propostos.
 
-6. Análise Estatística: Empregaremos técnicas estatísticas para validar a significância das diferenças observadas nas métricas de desempenho entre os serviços de geocodificação. Essa análise fornecerá insights sobre a confiabilidade e consistência dos serviços avaliados.
+f) Análise de interpretabilidade: Avaliar a interpretabilidade dos atributos extraídos por meio de análises de importância de atributos, visualizações e técnicas de interpretabilidade do modelo agnósticas, como LIME (Local Interpretable Model-Agnostic Explanations). Analisar os insights obtidos a partir dos atributos interpretáveis e sua concordância com o conhecimento do domínio.
 
-7. Análise de Sensibilidade: Realizaremos análises de sensibilidade para investigar o impacto de fatores variados, como complexidade do endereço, tamanho do conjunto de dados e distribuição geográfica, no desempenho dos serviços de geocodificação. Essa análise ajudará a identificar cenários em que determinados serviços se destacam ou enfrentam dificuldades, proporcionando uma compreensão mais profunda de seus pontos fortes e limitações.
+g) Validação experimental: Validar a robustez e generalizabilidade dos métodos propostos de extração de atributos aplicando-os a conjuntos de dados tabulares adicionais de diferentes domínios. Comparar os resultados com métodos de referência e avaliar a consistência do desempenho em diversos conjuntos de dados.
 
-8. Validação e Testes de Robustez: Para garantir a robustez de nossas descobertas, realizaremos testes de validação, como validação cruzada e bootstrap, para avaliar a estabilidade e generalizabilidade dos resultados obtidos.
-
-9. Recomendações: Com base na análise e comparação abrangente dos serviços de geocodificação, forneceremos recomendações sobre os serviços mais adequados para diferentes aplicações e destacaremos áreas para melhoria no cenário de geocodificação para cidades brasileiras.
+h) Análise comparativa: Realizar uma análise comparativa dos métodos propostos de extração de atributos com as técnicas existentes, destacando seus pontos fortes, limitações e aplicabilidade em diferentes cenários. Identificar os cenários específicos nos quais os métodos propostos superam ou complementam abordagens existentes. 
 
 %\section{Resultados Preliminares}
 %(Apenas em caso de renovação)

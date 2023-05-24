@@ -1,8 +1,8 @@
-PWD c:/Users/rcpsi/source/repos/UncertaintyQuantificationForGeocodingServices/UncertaintyQuantificationSaoPauloSchools/Undergraduate Research Project (pt-BR)
+PWD c:/Users/rcpsi/source/repos/FeatureGeneration/Research Projects/Undergraduate Research Project (pt-BR) - Feature Extraction Tabular Data
 INPUT c:/texlive/2022/texmf.cnf
 INPUT c:/texlive/2022/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/rcpsi/source/repos/UncertaintyQuantificationForGeocodingServices/UncertaintyQuantificationSaoPauloSchools/Undergraduate Research Project (pt-BR)/main.tex
+INPUT c:/Users/rcpsi/source/repos/FeatureGeneration/Research Projects/Undergraduate Research Project (pt-BR) - Feature Extraction Tabular Data/main.tex
 OUTPUT main.log
 INPUT c:/texlive/2022/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2022/texmf-dist/tex/latex/base/article.cls
