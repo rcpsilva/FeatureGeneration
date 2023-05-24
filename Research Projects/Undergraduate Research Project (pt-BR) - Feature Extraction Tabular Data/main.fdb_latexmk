@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1684949630 "main.aux" "main.bbl" "main" 1684949637 0
-  "./references.bib" 1684892336 1612 7d311115a237d994eeef57d1e60efc3f ""
+["bibtex main"] 1684954827 "main.aux" "main.bbl" "main" 1684954839 0
+  "./references.bib" 1684954409 5982 07053c75cea0955d9cec16f5564430b1 ""
   "c:/texlive/2022/texmf-dist/bibtex/bst/base/plain.bst" 1679353042 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1684949633 594 17147776ff0aa0f4d2452617a62630db "pdflatex"
+  "main.aux" 1684954836 1048 a40ffc0653a72a3ee4eb11f8d2b541f8 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1684949631 "c:/Users/rcpsi/source/repos/FeatureGeneration/Research Projects/Undergraduate Research Project (pt-BR) - Feature Extraction Tabular Data/main.tex" "main.pdf" "main" 1684949637 0
-  "c:/Users/rcpsi/source/repos/FeatureGeneration/Research Projects/Undergraduate Research Project (pt-BR) - Feature Extraction Tabular Data/main.tex" 1684949625 9098 c5b7973bf7a83140f5cab4aa3bf57b1f ""
+["pdflatex"] 1684954834 "c:/Users/rcpsi/source/repos/FeatureGeneration/Research Projects/Undergraduate Research Project (pt-BR) - Feature Extraction Tabular Data/main.tex" "main.pdf" "main" 1684954839 0
+  "c:/Users/rcpsi/source/repos/FeatureGeneration/Research Projects/Undergraduate Research Project (pt-BR) - Feature Extraction Tabular Data/main.tex" 1684954829 9300 56907610f37dcb6160de290c48318028 ""
   "c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1679353348 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1679354266 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm" 1679353891 3584 13049b61b922a28b158a38aeff75ee9b ""
@@ -16,6 +16,7 @@
   "c:/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1679353891 3584 f80ddd985bd00e29e9a6047ebd9d4781 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/ecrm1440.tfm" 1679353891 3584 3169d30142b88a27d4ab0e3468e963a2 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm" 1679353891 3584 3c76ccb63eda935a68ba65ba9da29f1a ""
+  "c:/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/ecti1000.tfm" 1679353891 3072 3bce340d4c075dffe6d4ec732b4c32fe ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1679353327 1524 4414a8315f39513458b80dfc63bff03a ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1679353327 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1679353327 1520 eccf95517727cb11801f4f1aee3a21b4 ""
@@ -29,6 +30,7 @@
   "c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1679353349 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb" 1679353349 136101 b18d10b3436f8cb0cd04046deb340fe7 ""
   "c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb" 1679353349 131438 c8884c67ccd7382f731c139fbb34a6cb ""
+  "c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb" 1679353349 186554 2eb6bd25fc5e008c37b6575e4923fdc7 ""
   "c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1679355915 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/texlive/2022/texmf-dist/tex/generic/babel-portuges/portuguese.ldf" 1679352840 6599 898431e984e4e8b6d8aa6cdcb036f8db ""
   "c:/texlive/2022/texmf-dist/tex/generic/babel/babel.sty" 1679352792 151363 1f5971af3ef874d432e8fb43e0edb71d ""
@@ -54,9 +56,9 @@
   "c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1679359898 4662804 131178ccc9b2f4741a821427ce79dce1 ""
   "c:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1679360027 7883451 1906458788776f148e040852b775af01 ""
   "c:/texlive/2022/texmf.cnf" 1679359856 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1684949633 594 17147776ff0aa0f4d2452617a62630db "pdflatex"
-  "main.bbl" 1684949631 49 0eba253fc001332e731e8aba3f23127b "bibtex main"
-  "main.tex" 1684949625 9098 c5b7973bf7a83140f5cab4aa3bf57b1f ""
+  "main.aux" 1684954836 1048 a40ffc0653a72a3ee4eb11f8d2b541f8 "pdflatex"
+  "main.bbl" 1684954828 1633 a2a5a555635cb38e472c56ef49a81bb1 "bibtex main"
+  "main.tex" 1684954829 9300 56907610f37dcb6160de290c48318028 ""
   (generated)
   "main.aux"
   "main.log"

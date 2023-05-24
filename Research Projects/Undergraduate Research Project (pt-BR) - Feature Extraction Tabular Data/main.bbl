@@ -1,3 +1,42 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{Guyon2006}
+Isabelle Guyon and Andr{\'e} Elisseeff.
+\newblock {\em An Introduction to Feature Extraction}, pages 1--25.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2006.
+
+\bibitem{hastie2009elements}
+Trevor Hastie, Robert Tibshirani, Jerome~H Friedman, and Jerome~H Friedman.
+\newblock {\em The elements of statistical learning: data mining, inference,
+  and prediction}, volume~2.
+\newblock Springer, 2009.
+
+\bibitem{jain1997feature}
+Anil Jain and Douglas Zongker.
+\newblock Feature selection: Evaluation, application, and small sample
+  performance.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence},
+  19(2):153--158, 1997.
+
+\bibitem{jovic2015review}
+Alan Jovi{\'c}, Karla Brki{\'c}, and Nikola Bogunovi{\'c}.
+\newblock A review of feature selection methods with applications.
+\newblock In {\em 2015 38th international convention on information and
+  communication technology, electronics and microelectronics (MIPRO)}, pages
+  1200--1205. Ieee, 2015.
+
+\bibitem{mutlag2020feature}
+Wamidh~K Mutlag, Shaker~K Ali, Zahoor~M Aydam, and Bahaa~H Taher.
+\newblock Feature extraction methods: a review.
+\newblock In {\em Journal of Physics: Conference Series}, volume 1591, page
+  012028. IOP Publishing, 2020.
+
+\bibitem{zebari2020comprehensive}
+Rizgar Zebari, Adnan Abdulazeez, Diyar Zeebaree, Dilovan Zebari, and Jwan
+  Saeed.
+\newblock A comprehensive review of dimensionality reduction techniques for
+  feature selection and feature extraction.
+\newblock {\em Journal of Applied Science and Technology Trends}, 1(2):56--70,
+  2020.
 
 \end{thebibliography}
