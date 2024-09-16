@@ -1,0 +1,297 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{listings}  % Para listagens de código
+\usepackage{xcolor}    % Para colorir as listagens de código
+\usepackage{graphicx}  % Para incluir imagens
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+
+% Ajuste das margens aqui
+\geometry{
+  a4paper,         % Tamanho do papel
+  left=25mm,       % Margem esquerda
+  right=25mm,      % Margem direita
+  top=25mm,        % Margem superior
+  bottom=25mm      % Margem inferior
+}
+
+\title{Comparação de Algoritmos de Ranking}
+\author{}
+\date{}
+
+% Estilo para o código Python nas listagens
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  commentstyle=\color{gray},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=10pt,
+  backgroundcolor=\color{lightgray!20},
+  frame=single,
+  captionpos=b
+}
+
+% Estilo para o código R nas listagens
+\lstdefinestyle{rstyle}{
+  language=R,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  commentstyle=\color{gray},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=10pt,
+  backgroundcolor=\color{lightgray!20},
+  frame=single,
+  captionpos=b
+}
+
+\begin{document}
+
+\maketitle
+
+Para determinar se os rankings produzidos por diferentes algoritmos são significativamente diferentes, você pode adotar métodos estatísticos adequados para comparar rankings. Aqui está como você pode abordar isso como um estatístico:
+
+\begin{enumerate}
+    \item \textbf{Kendall’s Tau ou Correlação de Rank de Spearman}:  
+    \begin{itemize}
+        \item Esses métodos avaliam a correlação entre os rankings. Se você tiver dois algoritmos de ranking, pode calcular \textbf{Kendall's Tau} ou \textbf{Coeficiente de Correlação de Rank de Spearman} para ver quão similares ou diferentes são os rankings. Esses coeficientes variam de -1 (rankings completamente inversos) a 1 (rankings idênticos).
+        \item Um p-valor significativo de um teste de hipótese (associado à correlação) indicaria que os rankings são estatisticamente diferentes.
+    \end{itemize}
+
+    \item \textbf{Teste de Permutação}:  
+    \begin{itemize}
+        \item Esta abordagem não paramétrica pode ajudar a avaliar se a diferença observada nos rankings (ou na correlação) é devido ao acaso. Você pode embaralhar os rankings várias vezes e comparar a diferença observada (usando uma métrica de correlação como Kendall’s Tau ou Spearman) à distribuição das diferenças sob permutações aleatórias de rankings.
+        \item Se a diferença observada for extrema em comparação com essa distribuição nula, isso sugere que os rankings são significativamente diferentes.
+    \end{itemize}
+
+    \item \textbf{Correlação de Rank-Biserial}:  
+    \begin{itemize}
+        \item Se você tiver dois grupos de rankings, pode usar a \textbf{Correlação de Rank-Biserial} para medir o grau de separação entre os rankings de dois algoritmos. Isso pode ser útil em cenários onde você deseja testar se um algoritmo de ranking classifica consistentemente certos recursos mais alto que o outro.
+    \end{itemize}
+
+    \item \textbf{Métodos de Ranking por Consenso}:  
+    \begin{itemize}
+        \item Você pode calcular um \textbf{ranking por consenso} (por exemplo, usando Contagem de Borda ou similar) e depois testar o quão longe o ranking de cada algoritmo se desvia desse consenso, usando métricas de distância (por exemplo, distância de Manhattan ou distância Euclidiana). Você pode então testar essas distâncias para significância usando testes estatísticos.
+    \end{itemize}
+
+    \item \textbf{Teste de Friedman e Análise Post-Hoc}:  
+    \begin{itemize}
+        \item Se você estiver comparando mais de dois algoritmos de ranking, pode usar o \textbf{Teste de Friedman}, um teste não paramétrico para detectar diferenças entre múltiplos algoritmos. Se o teste for significativo, você pode seguir com testes post-hoc pareados, como o teste de Nemenyi, para determinar quais rankings diferem.
+    \end{itemize}
+
+    \item \textbf{Bootstrap}:  
+    \begin{itemize}
+        \item Você pode reamostrar seus dados e reaplicar os algoritmos de ranking para criar distribuições de bootstrap dos rankings. Ao comparar as distribuições bootstrap, você pode determinar se há diferenças significativas na forma como os algoritmos classificam os recursos.
+    \end{itemize}
+\end{enumerate}
+
+Cada um desses métodos permite avaliar estatisticamente se há diferenças significativas entre os rankings dos vários algoritmos. Você gostaria de mais detalhes ou exemplos de como aplicar algum desses métodos?
+
+Os métodos mais comumente usados para comparar rankings de características em problemas de ciência de dados tendem a ser \textbf{Kendall's Tau} e \textbf{Correlação de Rank de Spearman}. Esses métodos são amplamente utilizados porque fornecem medidas diretas da similaridade ou dissimilaridade de ranks e são fáceis de interpretar.
+
+\section*{Por que Esses Métodos São Comuns:}
+\begin{enumerate}
+    \item \textbf{Simplicidade}: Ambos são relativamente fáceis de calcular e entender. Eles fornecem uma medida direta de quão similares ou diferentes são dois conjuntos de rankings.
+    \item \textbf{Teste de Hipóteses}: Tanto Kendall’s Tau quanto a Correlação de Rank de Spearman oferecem testes de hipótese com p-valores, o que torna simples avaliar se a diferença entre rankings é estatisticamente significativa.
+    \item \textbf{Interpretação}: Os coeficientes de correlação desses métodos são intuitivos: valores próximos a 1 significam que os rankings são altamente similares, e valores próximos a -1 significam que os rankings são altamente dissimilares. Isso os torna atraentes para os profissionais.
+    \item \textbf{Aplicabilidade Ampla}: Esses métodos funcionam bem mesmo quando as distribuições das características não são normais ou os relacionamentos são não-lineares, o que frequentemente ocorre em rankings de características.
+\end{enumerate}
+
+No contexto de comparar múltiplos algoritmos de ranking, o \textbf{Teste de Friedman} também é popular para comparar mais de dois rankings ao mesmo tempo, mas \textbf{Kendall’s Tau} e \textbf{Spearman’s} são os métodos mais utilizados para comparações pareadas.
+
+Aqui está um exemplo de como você pode usar Python para rodar os testes de \textbf{Kendall's Tau} e \textbf{Correlação de Rank de Spearman} para comparar dois conjuntos de rankings. Este código usa o módulo \texttt{scipy.stats} para calcular esses coeficientes de correlação e realizar os testes estatísticos.
+
+\begin{lstlisting}[style=pythonstyle, caption={Python code for Kendall's Tau and Spearman's Rank Correlation}]
+  import numpy as np
+  from scipy.stats import kendalltau, spearmanr
+  
+  # Example rankings from two different algorithms
+  ranking_algo1 = [1, 2, 3, 4, 5]
+  ranking_algo2 = [2, 1, 4, 3, 5]
+  
+  # Kendall's Tau test
+  kendall_tau_corr, kendall_tau_pvalue = kendalltau(ranking_algo1, ranking_algo2)
+  print(f"Kendall's Tau Correlation: {kendall_tau_corr}, p-value: {kendall_tau_pvalue}")
+  
+  # Spearman's Rank Correlation test
+  spearman_corr, spearman_pvalue = spearmanr(ranking_algo1, ranking_algo2)
+  print(f"Spearman's Rank Correlation: {spearman_corr}, p-value: {spearman_pvalue}")
+\end{lstlisting}
+    
+
+\section*{Explicação:}
+\begin{itemize}
+    \item \texttt{kendalltau()} calcula o coeficiente de correlação de Kendall's Tau e seu p-valor associado. A correlação mede a associação ordinal entre os rankings.
+    \item \texttt{spearmanr()} calcula a Correlação de Rank de Spearman e fornece o coeficiente de correlação e o p-valor. O método de Spearman é similar à correlação de Pearson, mas para dados ordenados.
+\end{itemize}
+
+\section*{Saída:}
+\begin{itemize}
+    \item \textbf{Coeficiente de Correlação}: Um valor entre -1 e 1, onde:
+    \begin{itemize}
+        \item 1 significa que os rankings são idênticos.
+        \item 0 significa que não há correlação.
+        \item -1 significa que os rankings são inversamente relacionados.
+    \end{itemize}
+    \item \textbf{p-valor}: O nível de significância do teste. Se o p-valor for menor que o limiar de significância (comumente 0.05), você rejeita a hipótese nula, indicando que os rankings são estatisticamente diferentes.
+\end{itemize}
+
+Este código pode ser modificado para comparar múltiplos rankings ou usado dentro de um loop para avaliar vários algoritmos. 
+
+\section*{Exemplo: Aplicando o Teste de Friedman e Análise Post-Hoc}
+
+Neste exemplo, vamos demonstrar como realizar o teste de Friedman para comparar múltiplos algoritmos de ranking e, se forem encontradas diferenças significativas, aplicar um teste post-hoc para comparações pareadas. Vamos usar tanto Python quanto R para esta demonstração, incluindo o código para visualizar os resultados.
+
+\subsection*{Conjunto de Dados}
+
+Suponha que temos os rankings de características produzidos por três algoritmos diferentes em cinco conjuntos de dados. Os rankings são os seguintes:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lccc}
+\hline
+\textbf{Conjunto de Dados} & \textbf{Algoritmo 1} & \textbf{Algoritmo 2} & \textbf{Algoritmo 3} \\
+\hline
+Conjunto de Dados 1 & 1 & 2 & 1 \\
+Conjunto de Dados 2 & 2 & 1 & 2 \\
+Conjunto de Dados 3 & 3 & 3 & 3 \\
+Conjunto de Dados 4 & 4 & 4 & 5 \\
+Conjunto de Dados 5 & 5 & 5 & 4 \\
+\hline
+\end{tabular}
+\caption{Rankings de características por três algoritmos em cinco conjuntos de dados}
+\end{table}
+
+\subsection*{Implementação em Python}
+
+\begin{lstlisting}[style=pythonstyle, caption={Python code for Friedman test and post-hoc analysis}]
+  import numpy as np
+  from scipy.stats import friedmanchisquare
+  import scikit_posthocs as sp
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  
+  # Rankings data
+  data = {
+      'Algorithm1': [1, 2, 3, 4, 5],
+      'Algorithm2': [2, 1, 3, 4, 5],
+      'Algorithm3': [1, 2, 3, 5, 4]
+  }
+  
+  df = pd.DataFrame(data, index=['Dataset1', 'Dataset2', 'Dataset3', 'Dataset4', 'Dataset5'])
+  
+  # Perform Friedman test
+  stat, p = friedmanchisquare(df['Algorithm1'], df['Algorithm2'], df['Algorithm3'])
+  print(f'Friedman test statistic: {stat:.3f}, p-value: {p:.3f}')
+  
+  # Check if the result is significant
+  if p < 0.05:
+      print('Significant differences found. Proceeding to post-hoc test.')
+      
+      # Perform Nemenyi post-hoc test
+      nemenyi = sp.posthoc_nemenyi_friedman(df.values)
+      nemenyi.index = ['Algorithm1', 'Algorithm2', 'Algorithm3']
+      nemenyi.columns = ['Algorithm1', 'Algorithm2', 'Algorithm3']
+      print(nemenyi)
+      
+      # Visualization of the post-hoc test results
+      sp.sign_plot(nemenyi, alpha=0.05)
+      plt.title('Nemenyi Post-hoc Test Results')
+      plt.show()
+  else:
+      print('No significant differences found.')
+  \end{lstlisting}
+
+\subsubsection*{Explicação}
+
+\begin{itemize}
+    \item \texttt{friedmanchisquare()} realiza o teste de Friedman nos rankings dos três algoritmos.
+    \item Se o p-valor for menor que 0.05, concluímos que há diferenças significativas entre os algoritmos.
+    \item Em seguida, realizamos o teste post-hoc de Nemenyi usando \texttt{posthoc\_nemenyi\_friedman()} da biblioteca \texttt{scikit\_posthocs}.
+    \item A função \texttt{sign\_plot()} visualiza as diferenças significativas entre pares de algoritmos.
+\end{itemize}
+
+\subsection*{Implementação em R}
+
+\begin{lstlisting}[style=rstyle, caption={R code for Friedman test and post-hoc analysis}]
+  # Install necessary packages if not already installed
+  # install.packages("PMCMRplus")
+  # install.packages("ggplot2")
+  # install.packages("reshape2")
+  # install.packages("multcompView")
+  
+  library(PMCMRplus)
+  library(ggplot2)
+  library(reshape2)
+  library(multcompView)
+  
+  # Rankings data
+  Algorithm1 <- c(1, 2, 3, 4, 5)
+  Algorithm2 <- c(2, 1, 3, 4, 5)
+  Algorithm3 <- c(1, 2, 3, 5, 4)
+  data <- data.frame(Algorithm1, Algorithm2, Algorithm3)
+  rownames(data) <- c("Dataset1", "Dataset2", "Dataset3", "Dataset4", "Dataset5")
+  
+  # Perform Friedman test
+  friedman_result <- friedman.test(as.matrix(data))
+  print(friedman_result)
+  
+  # Check if the result is significant
+  if (friedman_result$p.value < 0.05) {
+    print("Significant differences found. Proceeding to post-hoc test.")
+    
+    # Perform Nemenyi post-hoc test
+    posthoc_result <- posthoc.friedman.nemenyi.test(as.matrix(data))
+    print(posthoc_result)
+    
+    # Visualization of the post-hoc test results
+    p_values <- as.data.frame(posthoc_result$p.value)
+    p_values$Algorithm <- rownames(p_values)
+    melt_pvalues <- melt(p_values, id.vars = 'Algorithm')
+  
+    ggplot(melt_pvalues, aes(x = Algorithm, y = variable, fill = value)) +
+      geom_tile() +
+      geom_text(aes(label = sprintf("%.3f", value)), color = "black") +
+      scale_fill_gradient(low = "white", high = "red") +
+      theme_minimal() +
+      labs(title = "Nemenyi Post-hoc Test Results", x = "", y = "") +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  } else {
+    print("No significant differences found.")
+  }
+  \end{lstlisting}
+
+\subsubsection*{Explicação}
+
+\begin{itemize}
+    \item \texttt{friedman.test()} realiza o teste de Friedman nos rankings.
+    \item Se o p-valor for menor que 0.05, prosseguimos com o teste post-hoc de Nemenyi usando \texttt{posthoc.friedman.nemenyi.test()} do pacote \texttt{PMCMRplus}.
+    \item A visualização usa \texttt{ggplot2} para criar um mapa de calor dos p-valores entre pares de algoritmos.
+\end{itemize}
+
+\subsection*{Interpretação dos Resultados}
+
+Em ambas as implementações, Python e R, realizamos primeiro o teste de Friedman para verificar se há diferenças estatisticamente significativas entre os rankings dos algoritmos. Se forem encontradas diferenças significativas (p-valor $<$ 0.05), prosseguimos com o teste post-hoc de Nemenyi para identificar quais pares de algoritmos diferem.
+
+\subsubsection*{Visualização}
+
+As visualizações ajudam a identificar rapidamente as diferenças significativas:
+
+\begin{itemize}
+    \item Em Python, a função \texttt{sign\_plot()} gera um gráfico onde são indicadas as diferenças significativas.
+    \item Em R, o mapa de calor exibe os p-valores entre pares de algoritmos, com p-valores menores (por exemplo, $<$ 0.05) indicando diferenças significativas.
+\end{itemize}
+
+\subsection*{Conclusão}
+
+Este exemplo demonstra como realizar um teste de Friedman e seguir com uma análise post-hoc se necessário. Incluir visualizações ajuda a interpretar os resultados e comunicar as descobertas de forma eficaz.
+
+\end{document}
